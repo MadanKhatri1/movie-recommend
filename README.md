@@ -49,5 +49,25 @@ The project requires the following Python libraries:
 Install the dependencies using:
 ```bash
 pip install pandas numpy nltk scikit-learn
+```
+
+Additionally, download the NLTK data for the Porter Stemmer:
+```bash
+import nltk
+nltk.download('punkt')
+```
+## Usuage
+
+# Run the Jupyter Notebook:
+   - Open movie_recommender_system.ipynb in Jupyter Notebook or JupyterLab.
+   - Execute the cells sequentially to preprocess the data, generate the feature vectors, and compute the similarity matrix.
+   - Use the recommend(movie) function by passing the title of a movie (case-insensitive). For example:
+     `bash recommend('batman')`
+   -The movie.pkl and similarity.pkl files can be used in a web application or other Python scripts for real-time recommendations.
 
 
+## Limitations
+- The system relies solely on content-based filtering, which may not capture user preferences or collaborative filtering insights.
+- The dataset is limited to ~4,800 movies, which may not include recent releases.
+- The recommendation quality depends on the richness of the tags (e.g., overview, genres, cast, crew). Sparse or incomplete data may lead to suboptimal recommendations.
+- The CountVectorizer approach may not capture semantic relationships between words (e.g., "war" and "battle"). Advanced techniques like word embeddings (e.g., Word2Vec, BERT) could improve results.
